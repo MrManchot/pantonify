@@ -1,0 +1,25 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(12, 80px);
+    grid-column-gap: 2px;
+}
+
+.container > div {
+    margin-bottom: 2px;
+}
+
+.patone-block {
+    color: #4a4a4a;
+    font-family: Helvetica, Arial, sans-serif;
+    padding: 5%;
+    font-size: 7px;
+}
+
+.patone-block strong, .patone-block span {
+    display: block;
+    text-transform: capitalize;
+}
+
+.color-block {
+    height: 80px;
+}
