@@ -1,13 +1,3 @@
-<?php
-
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-require 'vendor/autoload.php';
-require 'src/Pantonify.php';
-
-$html = (new Pantonify('image.jpg'))->display();
-
-?>
 <!doctype html>
 <html>
 <head>
@@ -15,10 +5,15 @@ $html = (new Pantonify('image.jpg'))->display();
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Pantonify</title>
     <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="node_modules/dropzone/dist/min/dropzone.min.css" />
 </head>
 
 <body>
-    <div class="container"><?=$html?></div>
+    <form action="ajax.php" class="dropzone" id="pantonify-dropzone"></form>
+    <div id="pantonify-container" class="container"></div>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/dropzone/dist/min/dropzone.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

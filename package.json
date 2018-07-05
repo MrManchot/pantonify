@@ -1,0 +1,23 @@
+{
+  "name": "pantonify",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "dropzone": "^5.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrManchot/pantonify.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MrManchot/pantonify/issues"
+  },
+  "homepage": "https://github.com/MrManchot/pantonify#readme"
+}

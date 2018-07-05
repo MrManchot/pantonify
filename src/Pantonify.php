@@ -6,6 +6,7 @@ class Pantonify
 {
 
     const PANTONE_NUMBERS_JSON = 'https://raw.githubusercontent.com/Margaret2/pantone-colors/master/pantone-numbers.json';
+    const UPLOAD_DIR = 'upload/';
     public $filename;
     public $image;
     public $matrice;
