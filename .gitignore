@@ -3,3 +3,4 @@ vendor/*
 upload/*
 !upload/.gitkeep
 composer.lock
+resample.png

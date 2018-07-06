@@ -1,6 +1,8 @@
 <?php
 
-// Gulp
+// Limitation type de fichier
+// 1 Seul uplaod
+// prevoir PDF A3 - juste feuille print
 
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
