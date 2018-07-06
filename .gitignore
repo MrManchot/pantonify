@@ -4,3 +4,4 @@ upload/*
 !upload/.gitkeep
 composer.lock
 resample.png
+node_modules/*
