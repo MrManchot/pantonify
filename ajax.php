@@ -8,5 +8,7 @@ if(isset($_FILES['file']['tmp_name'])) {
         die('Can not write : '. $destination);
     }
 } elseif(isset($_POST['filename'])) {
-    echo (new Pantonify(Pantonify::UPLOAD_DIR . $_POST['filename']))->display();
+    $json = (new Pantonify(Pantonify::UPLOAD_DIR . $_POST['filename']))->display();
+    echo json_encode($json);
+    die();
 }

@@ -5,9 +5,15 @@ use Intervention\Image\ImageManagerStatic as Image;
 class Pantonify
 {
 
+    const MAX_WIDTH = 12;
+    const MAX_HEIGHT = 13;
+    const RATIO = 0.75;
     const PANTONE_NUMBERS_JSON = 'https://raw.githubusercontent.com/Margaret2/pantone-colors/master/pantone-numbers.json';
     const UPLOAD_DIR = 'upload/';
+
     public $filename;
+    public $width;
+    public $height;
     public $image;
     public $matrice;
     public $pantones;
@@ -20,9 +26,20 @@ class Pantonify
         $this->getMatrice();
     }
 
+    public function getResampleSizes($filename) {
+        $size = getimagesize($filename);
+        $this->width = self::MAX_WIDTH;
+        $this->height = round($this->width * $size[1] / $size[0] * self::RATIO);
+        if($this->height > self::MAX_HEIGHT) {
+            $this->height = self::MAX_HEIGHT;
+            $this->width = round($this->height * $size[0] / $size[1] / self::RATIO);
+        }
+    }
+
     public function resample($filename) {
+        $this->getResampleSizes($filename);
         $resample_filename = 'resample.png';
-        $image = Image::make($filename)->resize(12, 9);
+        $image = Image::make($filename)->resize($this->width, $this->height);
         $image->save($resample_filename);
         return $resample_filename;
     }
@@ -95,6 +112,9 @@ class Pantonify
                       </div>';
             }
         }
-        return $html;
+        return array(
+            'html' => $html,
+            'columns' => $this->width,
+        );
     }
 }

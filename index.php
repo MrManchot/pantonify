@@ -1,11 +1,3 @@
-<?php
-
-// Limitation type de fichier
-// 1 Seul uplaod
-// prevoir PDF A3 - juste feuille print
-
-require 'config.php';
-?>
 <!doctype html>
 <html>
 <head>
