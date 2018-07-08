@@ -6,7 +6,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 700px;
+  width: 980px;
   > div {
     .patone-block {
       color: #4a4a4a;
@@ -24,5 +24,11 @@
 @media print {
   #pantonify-dropzone {
     display: none;
+  }
+  #pantonify-container {
+    width:700px;
+    .color-block {
+      height:56.5px;
+    }
   }
 }
