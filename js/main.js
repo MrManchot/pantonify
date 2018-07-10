@@ -7,13 +7,36 @@ $(document).ready(function () {
         init: function () {
             this.on('success', function (uploaded_file) {
                 $.post('ajax.php', {filename: uploaded_file.name}, function (data) {
-                    $('#pantonify-dropzone').fadeOut();
+                    $('#pantonify-dropzone').slideUp();
+                    $('#pantonify-tools').fadeIn();
                     $('#pantonify-container').html(data.html).css('grid-template-columns', 'repeat(' + data.columns + ',1fr)');
-                    $('#pantonify-container .color-block').css('height', $('#pantonify-container .color-block:first-child').width());
+                    color_block_height();
                 }, 'json');
 
             });
         }
     });
 
+    $('#pantonify-tools .print button').on('click', function() {
+        window.print();
+    });
+
+    $('#pantonify-tools .redo button').on('click', function() {
+        $('#pantonify-dropzone').slideDown();
+    });
+
+    $('#pantonify-tools .buy button').on('click', function() {
+        alert('Not yet !');
+    });
+
 });
+
+$( window ).resize(function() {
+    color_block_height();
+});
+
+function color_block_height() {
+    var color_width = $('#pantonify-container .color-block:first-child').width();
+    $('#pantonify-container .color-block').css('height', color_width);
+}
+

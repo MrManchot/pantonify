@@ -10,6 +10,11 @@
 
 <body>
     <form action="ajax.php" class="dropzone" id="pantonify-dropzone"></form>
+    <ul id="pantonify-tools" style="display:none;">
+        <li class="print"><button>Print</button></li>
+        <li class="redo"><button>Do it again</button></li>
+        <li class="buy"><button>Buy</button></li>
+    </ul>
     <div id="pantonify-container" class="container"></div>
     <script src="dist/js/pantonify.min.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122025561-1"></script>

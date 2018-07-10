@@ -5,8 +5,8 @@ use Intervention\Image\ImageManagerStatic as Image;
 class Pantonify
 {
 
-    const MAX_WIDTH = 12;
-    const MAX_HEIGHT = 13;
+    const MAX_WIDTH = 18;
+    const MAX_HEIGHT = 19;
     const RATIO = 0.75;
     const PANTONE_NUMBERS_JSON = 'https://raw.githubusercontent.com/Margaret2/pantone-colors/master/pantone-numbers.json';
     const UPLOAD_DIR = 'upload/';
@@ -38,7 +38,7 @@ class Pantonify
 
     public function resample($filename) {
         $this->getResampleSizes($filename);
-        $resample_filename = 'resample.png';
+        $resample_filename = self::UPLOAD_DIR . 'resample.png';
         $image = Image::make($filename)->resize($this->width, $this->height);
         $image->save($resample_filename);
         return $resample_filename;
