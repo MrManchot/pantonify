@@ -1,5 +1,6 @@
 {
     "require": {
-        "intervention/image": "^2.4"
+        "intervention/image": "^2.4",
+        "spiritix/php-chrome-html2pdf": "^1.6"
     }
 }

@@ -5,8 +5,8 @@ use Intervention\Image\ImageManagerStatic as Image;
 class Pantonify
 {
 
-    const MAX_WIDTH = 18;
-    const MAX_HEIGHT = 19;
+    const MAX_WIDTH = 14;
+    const MAX_HEIGHT = 15;
     const RATIO = 0.75;
     const PANTONE_NUMBERS_JSON = 'https://raw.githubusercontent.com/Margaret2/pantone-colors/master/pantone-numbers.json';
     const UPLOAD_DIR = 'upload/';
@@ -26,17 +26,19 @@ class Pantonify
         $this->getMatrice();
     }
 
-    public function getResampleSizes($filename) {
+    public function getResampleSizes($filename)
+    {
         $size = getimagesize($filename);
         $this->width = self::MAX_WIDTH;
         $this->height = round($this->width * $size[1] / $size[0] * self::RATIO);
-        if($this->height > self::MAX_HEIGHT) {
+        if ($this->height > self::MAX_HEIGHT) {
             $this->height = self::MAX_HEIGHT;
             $this->width = round($this->height * $size[0] / $size[1] / self::RATIO);
         }
     }
 
-    public function resample($filename) {
+    public function resample($filename)
+    {
         $this->getResampleSizes($filename);
         $resample_filename = self::UPLOAD_DIR . 'resample.png';
         $image = Image::make($filename)->resize($this->width, $this->height);
@@ -102,14 +104,20 @@ class Pantonify
     {
         $html = '';
         foreach ($this->matrice as $x) {
-            foreach ($x as $color) {
-                $html .= '<div>
+            foreach ($x as $i => $color) {
+                if ($i % $this->width == 0) {
+                    $html .= '<div class="row">';
+                }
+                $html .= '<div class="pixel">
                         <div class="color-block" style="background-color:rgba(' . $color['r'] . ', ' . $color['g'] . ', ' . $color['b'] . ')"></div>
                         <div class="patone-block">
                             <strong>' . $color['pantone']['code'] . '</strong>
                             <span>' . $color['pantone']['name'] . '</span>
                         </div>
                       </div>';
+                if ($i % $this->width == $this->width - 1) {
+                    $html .= '</div>';
+                }
             }
         }
         return array(

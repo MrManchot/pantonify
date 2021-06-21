@@ -1,0 +1,24 @@
+#pantonify-container {
+    width: 1029px;
+    color: #4a4a4a;
+    font-family: Helvetica, Arial, sans-serif;
+}
+#pantonify-container .row {
+    clear: both;
+}
+#pantonify-container .pixel {
+    float: left;
+    padding: 3px;
+    height: 90px;
+    width: 67.5px;
+    overflow: hidden;
+}
+#pantonify-container .color-block {
+    height: 67.5px;
+}
+#pantonify-container .pixel .patone-block span,
+#pantonify-container .pixel .patone-block strong {
+    display: block;
+    font-size: 8px;
+    text-transform: capitalize;
+}
